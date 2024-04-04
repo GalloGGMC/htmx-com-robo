@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logs</title>
+    <script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/picnic">
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <style>
+        td{
+            border-color: white;
+            border:2px solid white;
+        }
+    </style>
+    <div class="center"><h1>Histórico de utilização</h1></div>
+    <div class="center">
+    <table hx-get="http://127.0.0.1:8000/logs" hx-trigger="every 5s">
+        <tr>
+            <th>X</th>
+            <th>Y</th>
+            <th>Z</th>
+            <th>R</th>
+            <th>Horário</th>
+        </tr>
+        {% for log in logs %}
+        <tr>
+            <td>{{ log.x }}</td>
+            <td>{{ log.y }}</td>
+            <td>{{ log.z }}</td>
+            <td>{{ log.r }}</td>
+            <td>{{ log.data }}</td>
+            <br>
+        </tr>
+        {% endfor %}
+    </table></div>
+    <div class="center"><a href="/">Menu</a></div><br>
+</body>
+</html>

@@ -1,0 +1,16 @@
+body{
+    background-color: black;
+    color: white;
+    font-family: sans-serif;
+}
+
+.break{
+    width: 100%;
+    height: 20px;
+}
+
+.center{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
